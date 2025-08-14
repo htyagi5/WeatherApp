@@ -13,7 +13,7 @@ function App() {
   const [wind, setWind] = useState("");
   const [imag, setImag] = useState("");
   const [text, setText] = useState("");
- const apikey=process.env.REACT_APP_WEATHER_API_KEY;
+ const apikey = import.meta.env.VITE_WEATHER_API_KEY;
   useEffect(() => {
     fetch(`http://api.weatherapi.com/v1/current.json?key=${apikey}&q=${jagah}&aqi=yes`)
       .then(response => response.json())
