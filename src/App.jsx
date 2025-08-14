@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 function App() {
-  const [jagah, setJagah] = useState("kerala");
+  const [jagah, setJagah] = useState("india");
   const [temp, setTemp] = useState("");
   const [country, setCountry] = useState("");
   const [region, setRegion] = useState("");
@@ -13,9 +13,9 @@ function App() {
   const [wind, setWind] = useState("");
   const [imag, setImag] = useState("");
   const [text, setText] = useState("");
-
+ const apikey=process.env.REACT_APP_WEATHER_API_KEY;
   useEffect(() => {
-    fetch(`http://api.weatherapi.com/v1/current.json?key=ba9ea5cac72440ec81941308251408&q=${jagah}&aqi=yes`)
+    fetch(`http://api.weatherapi.com/v1/current.json?key=${apikey}&q=${jagah}&aqi=yes`)
       .then(response => response.json())
       .then((e) => {
         setTemp(e.current.temp_c);
